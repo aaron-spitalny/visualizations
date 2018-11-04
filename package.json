@@ -1,0 +1,49 @@
+{
+    "name": "lab_2",
+    "version": "1.0.0",
+    "description": "CSE 332: Lab 2",
+    "main": "app/app.js",
+    "scripts": {
+        "start": "nodemon -e css,js,json,ejs --watch app",
+        "dev": "webpack -wd"
+    },
+    "author": "Aaron Spitalny",
+    "license": "ISC",
+    "dependencies": {
+        "@babel/core": "^7.0.0",
+        "@material-ui/core": "^3.2.0",
+        "@material-ui/icons": "^3.0.1",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "d3": "^5.7.0",
+        "ebay-api": "^1.13.7",
+        "ejs": "^2.6.1",
+        "evergreen-ui": "^4.3.0",
+        "express": "^4.16.4",
+        "flat": "^4.1.0",
+        "fs": "0.0.1-security",
+        "json-2-csv": "^2.3.1",
+        "moment": "^2.22.2",
+        "react": "^16.5.2",
+        "react-dom": "^16.5.2",
+        "react-redux": "^5.0.7",
+        "redux": "^4.0.1",
+        "redux-thunk": "^2.3.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.1.2",
+        "@babel/plugin-proposal-class-properties": "^7.0.0",
+        "@babel/plugin-proposal-json-strings": "^7.0.0",
+        "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+        "@babel/plugin-syntax-import-meta": "^7.0.0",
+        "@babel/preset-env": "^7.0.0",
+        "@babel/preset-react": "^7.0.0",
+        "babel-loader": "^8.0.0",
+        "webpack": "^4.20.2",
+        "webpack-cli": "^3.1.2"
+    },
+    "nodemonConfig": {
+        "ignore": [
+            "data/*"
+        ]
+    }
+}
