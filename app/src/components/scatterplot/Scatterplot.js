@@ -46,44 +46,6 @@ class ScatterPlot extends Component {
 											sm={12}
 											xs={12}>
 											<InputLabel
-												htmlFor="xAxis"
-												style={{
-													paddingRight: 10
-												}}>
-												X-Axis
-											</InputLabel>
-											<Select
-												id="xAxis"
-												value={this.props.xAxis}
-												onChange={e =>
-													this.props.changeScatterPlot(
-														"xAxis",
-														e.target.value
-													)
-												}>
-												{Object.keys(chartOptions).map(
-													(key, index) => (
-														<MenuItem
-															key={key}
-															value={key}>
-															{
-																chartOptions[
-																	key
-																][0]
-															}
-														</MenuItem>
-													)
-												)}
-											</Select>
-										</Grid>
-										<Grid
-											item
-											xl={12}
-											lg={12}
-											md={12}
-											sm={12}
-											xs={12}>
-											<InputLabel
 												htmlFor="yAxis"
 												style={{
 													paddingRight: 10
@@ -107,7 +69,45 @@ class ScatterPlot extends Component {
 															{
 																chartOptions[
 																	key
-																][0]
+																]
+															}
+														</MenuItem>
+													)
+												)}
+											</Select>
+										</Grid>
+										<Grid
+											item
+											xl={12}
+											lg={12}
+											md={12}
+											sm={12}
+											xs={12}>
+											<InputLabel
+												htmlFor="xAxis"
+												style={{
+													paddingRight: 10
+												}}>
+												X-Axis
+											</InputLabel>
+											<Select
+												id="xAxis"
+												value={this.props.xAxis}
+												onChange={e =>
+													this.props.changeScatterPlot(
+														"xAxis",
+														e.target.value
+													)
+												}>
+												{Object.keys(chartOptions).map(
+													(key, index) => (
+														<MenuItem
+															key={key}
+															value={key}>
+															{
+																chartOptions[
+																	key
+																]
 															}
 														</MenuItem>
 													)
@@ -134,8 +134,8 @@ class ScatterPlot extends Component {
 								width={800}
 								x={this.props.xAxis}
 								y={this.props.yAxis}
-								yLabel={chartOptions[this.props.yAxis][1]}
-								xLabel={chartOptions[this.props.xAxis][1]}
+								yLabel={chartOptions[this.props.yAxis]}
+								xLabel={chartOptions[this.props.xAxis]}
 								data={data}
 							/>
 						</Grid>
@@ -147,12 +147,16 @@ class ScatterPlot extends Component {
 }
 
 const chartOptions = {
-	startDay: ["Start Day", "Days"],
-	soldDay: ["Sold Day", "Days"],
-	startHour: ["Start Hour", "Hours"],
-	soldHour: ["Sold Hour", "Hours"],
-	price: ["Price", "USD"],
-	time_to_sell: ["Time to Sell", true, "Days"]
+	startDay: "Start Day",
+	soldDay: "Sold Day",
+	startHour: "Start Hour",
+	soldHour: "Sold Hour",
+	price: "Sold Price",
+	daysToSell: "Days to Sell",
+	titleLength: "Length of Title",
+	feedbackScore: "Seller Feedback Score",
+	positiveFeedbackPercent: "Seller Positive Feedback Percent",
+	returnsAccepted: "Returns Accepted"
 };
 
 ScatterPlot.propTypes = {};

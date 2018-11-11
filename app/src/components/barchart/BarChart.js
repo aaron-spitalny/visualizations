@@ -19,7 +19,6 @@ import { changeBarChart } from "../../redux/actions/barchartActions";
 import { connect } from "react-redux";
 import CategoryList from "./CategoryList";
 import propTypes from "prop-types";
-var moment = require("moment");
 import Categories from "./Categories";
 import Info from "@material-ui/icons/Info";
 import IconButton from "@material-ui/core/IconButton";
@@ -196,6 +195,7 @@ class BarChart extends Component {
 
 		var newData = {};
 		// scaleLinear or scaleBand type
+		console.log(Object.keys(this.state.data).map(d => d))
 		const xScale = this.state.binnable
 			? d3
 					.scaleLinear()

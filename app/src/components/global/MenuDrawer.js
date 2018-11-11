@@ -24,6 +24,11 @@ import { Icon } from 'evergreen-ui'
 import BarChart from "../barchart/BarChart";
 import Scatterplot from "../scatterplot/Scatterplot";
 import CorrelationMatrix from "../correlationMatrix/CorrelationMatrix";
+import ScatterplotMatrix from "../ScatterplotMatrix/ScatterplotMatrix";
+import ParallelCoordinates from "../ParallelCoordinates/ParallelCoordinates";
+import PcaAndScreePlot from "../pcaAndScreePlot/PcaAndScreePlot";
+import Biplot from "../biplot/Biplot";
+import MDS from "../mds/MDS";
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -97,7 +102,7 @@ class MenuDrawer extends React.Component {
 		super(props);
 		this.state = {
 			open: false,
-			pageID: "scatterplot"
+			pageID: "biplot"
 		};
 		this.handlePageChange = this.handlePageChange.bind(this);
 	}
@@ -107,7 +112,6 @@ class MenuDrawer extends React.Component {
 	};
 
 	handlePageChange(value) {
-		console.log(value)
 		this.setState({ pageID: value });
 	}
 
@@ -198,6 +202,79 @@ class MenuDrawer extends React.Component {
 							<ListItemText primaryTypographyProps={{style: {color:this.state.pageID === "correlationmatrix" ? "white" : "#000"}}} primary={"Correlation Matrix"} />
 						</ListItem>
 					</List>
+					<List>
+						<ListItem
+							style={{backgroundColor: this.state.pageID === "scatterplotmatrix" ? "#2196f3" : "white"}}
+							onClick={() =>
+								this.handlePageChange("scatterplotmatrix")
+							}
+							button>
+							<ListItemIcon>
+								<Icon icon="helper-management" color={this.state.pageID === "scatterplotmatrix" ? "white" : "rgba(0, 0, 0, 0.54)"} size={20} />
+							</ListItemIcon>
+							<ListItemText primaryTypographyProps={{style: {color:this.state.pageID === "scatterplotmatrix" ? "white" : "#000"}}} primary={"Scatter Plot Matrix"} />
+						</ListItem>
+					</List>
+					<List>
+						<ListItem
+							style={{backgroundColor: this.state.pageID === "parallelCoordinates" ? "#2196f3" : "white"}}
+							onClick={() =>
+								this.handlePageChange("parallelCoordinates")
+							}
+							button>
+							<ListItemIcon>
+								<Icon icon="comparison" color={this.state.pageID === "parallelCoordinates" ? "white" : "rgba(0, 0, 0, 0.54)"} size={20} />
+							</ListItemIcon>
+							<ListItemText primaryTypographyProps={{style: {color:this.state.pageID === "parallelCoordinates" ? "white" : "#000"}}} primary={"Parallel Coordinates"} />
+						</ListItem>
+					</List>
+					<List>
+						<ListItem
+							style={{paddingLeft: 10,backgroundColor: this.state.pageID === "pcaAndScreePlot" ? "#2196f3" : "white"}}
+							onClick={() =>
+								this.handlePageChange("pcaAndScreePlot")
+							}
+							button>
+							<ListItemIcon>
+							<span>
+							<Icon icon="scatter-plot" color={this.state.pageID === "pcaAndScreePlot" ? "white" : "rgba(0, 0, 0, 0.54)"} size={20} />
+							<Icon style={{marginBottom: 5}} icon="plus" color={this.state.pageID === "pcaAndScreePlot" ? "white" : "rgba(0, 0, 0, 0.54)"} size={10} />
+							<Icon style={{marginBottom: 1}} icon="grouped-bar-chart" color={this.state.pageID === "pcaAndScreePlot" ? "white" : "rgba(0, 0, 0, 0.54)"} size={20} />
+							</span>
+							</ListItemIcon>
+							<ListItemText primaryTypographyProps={{style: {color:this.state.pageID === "pcaAndScreePlot" ? "white" : "#000"}}} primary={"PCA and Scree Plot"} />
+						</ListItem>
+					</List>
+					<List>
+						<ListItem
+							style={{paddingLeft: 10,backgroundColor: this.state.pageID === "biplot" ? "#2196f3" : "white"}}
+							onClick={() =>
+								this.handlePageChange("biplot")
+							}
+							button>
+							<ListItemIcon>
+							<span style={{paddingLeft: 13,color: this.state.pageID === "biplot" ? "#fff" : "rgba(0, 0, 0, 0.54)"}}>
+								BP
+							</span>
+							</ListItemIcon>
+							<ListItemText primaryTypographyProps={{style: {color:this.state.pageID === "biplot" ? "white" : "#000"}}} primary={"Biplot"} />
+						</ListItem>
+					</List>
+					<List>
+						<ListItem
+							style={{paddingLeft: 10,backgroundColor: this.state.pageID === "mds" ? "#2196f3" : "white"}}
+							onClick={() =>
+								this.handlePageChange("mds")
+							}
+							button>
+							<ListItemIcon>
+							<span style={{paddingLeft: 10,color: this.state.pageID === "mds" ? "#fff" : "rgba(0, 0, 0, 0.54)"}}>
+								MDS
+							</span>
+							</ListItemIcon>
+							<ListItemText primaryTypographyProps={{style: {color:this.state.pageID === "mds" ? "white" : "#000"}}} primary={"MDS"} />
+						</ListItem>
+					</List>
 				</Drawer>
 				<main className={classes.content}>
 					<div className={classes.toolbar} />
@@ -205,6 +282,11 @@ class MenuDrawer extends React.Component {
 						{this.state.pageID === "barchart" && <BarChart />}
 						{this.state.pageID === "scatterplot" && <Scatterplot />}
 						{this.state.pageID === "correlationmatrix" && <CorrelationMatrix />}
+						{this.state.pageID === "scatterplotmatrix" && <ScatterplotMatrix />}
+						{this.state.pageID === "parallelCoordinates" && <ParallelCoordinates />}
+						{this.state.pageID === "pcaAndScreePlot" && <PcaAndScreePlot />}
+						{this.state.pageID === "biplot" && <Biplot />}
+						{this.state.pageID === "mds" && <MDS />}
 					</div>
 				</main>
 			</div>

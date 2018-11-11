@@ -3,7 +3,7 @@ export const initialState = {
         category: "start_day"
     },
     scatterplot:{
-        xAxis: "startDay",
+        xAxis: "daysToSell",
         yAxis: "soldDay"
     }
 };
