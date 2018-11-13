@@ -1,6 +1,4 @@
 var express = require('express');
-var configFile = require("../config_vars.json");
-var ebayService = require("./ebay-services/get-ebay-data");
 var dataConversionProcedures = require('./procedures/data-conversion')
 
 //server stuff

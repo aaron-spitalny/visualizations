@@ -26,13 +26,28 @@ class Biplot extends Component {
 				<ExpansionPanelSummary style={{ cursor: "default" }}>
 					<Typography variant="h5">Biplot</Typography>
 				</ExpansionPanelSummary>
-				<ExpansionPanelDetails style={{ padding: 20 }}>
+				<ExpansionPanelDetails style={{ padding: 20, display: "flex", alignItems: "center" }}>
+                    <div>
 					<D3Biplot  />
+                    </div>
 				</ExpansionPanelDetails>
 			</ExpansionPanel>
 		);
 	}
 }
+
+const categories = {
+	daysToSell: "Days to Sell",
+	returnsAccepted: "Returns Accepted",
+	titleLength: "Length of Title",
+	positiveFeedbackPercent: "Positive Feedback Percent",
+	startDay: "Start Day",
+	soldDay: "Sold Day",
+	startHour: "Start Hour",
+	soldHour: "Sold Hour",
+	price: "Sold Price",
+	feedbackScore: "Seller Feedback Score"
+};
 
 
 Biplot.propTypes = {};

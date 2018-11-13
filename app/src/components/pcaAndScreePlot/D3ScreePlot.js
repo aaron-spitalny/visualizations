@@ -22,9 +22,9 @@ export default class D3ScreePlot extends Component {
 			.attr("text-anchor", "end")
 			.text("PCA");
 		//ranges for x and y axis
-		x.rangeRound([0, width]);
+		x.rangeRound([0, width-60]);
 		y.rangeRound([height, 0]);
-		x.domain(screePlotArray.map((value, index) => "pca" + index));
+		x.domain(screePlotArray.map((value, index) => "pc" + (index+1)));
 		y.domain([0, Math.max.apply(Math, screePlotArray) + 1]);
 		//
 		this.svg
@@ -40,7 +40,7 @@ export default class D3ScreePlot extends Component {
 			.enter()
 			.append("rect")
 			.attr("class", "barscree")
-			.attr("x", (v, index) => x("pca"+index))
+			.attr("x", (v, index) => x("pc"+(index+1)))
 			.attr("y", v => y(v))
 			.attr("width", x.bandwidth())
 			.attr("height", v => height - y(v));
@@ -61,9 +61,9 @@ export default class D3ScreePlot extends Component {
 	}
 }
 
-const margins = { top: 20, right: 20, bottom: 60, left: 60 };
+const margins = { top: 20, right: 80, bottom: 60, left: 60 };
 const height = 300;
-const width = 500;
+const width = 560;
 const screePlotArray = screePlot();
 const screePlotObj = screePlotArray.map((value, index) => {
 	return { ["pca" + index]: value };

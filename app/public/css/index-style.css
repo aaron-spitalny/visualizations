@@ -91,3 +91,7 @@ circle.hidden {
 .axis--x path {
   display: none;
 }
+
+.labels{
+    font-size: .5rem;
+}

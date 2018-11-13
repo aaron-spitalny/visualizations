@@ -40,7 +40,7 @@ class CorrelationMatrix extends Component {
 		const reducer = (accumulator, currentValue) =>
 			accumulator + currentValue;
 		correlationMatrix.forEach(array => console.log(array.reduce(reducer)));
-		console.log(correlationMatrix)
+		console.log(JSON.stringify(correlationMatrix.map(array => array.map(value => 1 - Math.abs(value)))))
 		return (
 			<ExpansionPanel defaultExpanded expanded={true}>
 				<ExpansionPanelSummary style={{ cursor: "default" }}>

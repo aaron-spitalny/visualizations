@@ -102,7 +102,7 @@ class MenuDrawer extends React.Component {
 		super(props);
 		this.state = {
 			open: false,
-			pageID: "biplot"
+			pageID: "mds"
 		};
 		this.handlePageChange = this.handlePageChange.bind(this);
 	}
